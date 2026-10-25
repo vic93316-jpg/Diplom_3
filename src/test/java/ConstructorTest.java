@@ -1,44 +1,34 @@
 import driver.DriverFactory;
-import io.qameta.allure.*;
-import org.junit.*;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.ConstructorPage;
-import java.util.Arrays;
-import java.util.Collection;
-
 
 import static org.junit.Assert.assertTrue;
 
 @Epic("Stellar Burgers")
 @Feature("Конструктор")
-@RunWith(Parameterized.class)
-public class ConstructorTest  {
+public class ConstructorTest {
 
     public WebDriver driver;
-    @Parameterized.Parameters(name = "Браузер: {0}")
-    public static Collection<Object[]> browsers() {
-        return Arrays.asList(new Object[][]{{"chrome"}, {"yandex"}});
-    }
-
-    private final String browser;
     private ConstructorPage constructorPage;
-
-    public ConstructorTest(String browser) {
-        this.browser = browser;
-    }
 
     @Before
     public void setUp() {
-        System.setProperty("driver", browser);
+        // DriverFactory сама определяет, какой браузер запускать
         driver = DriverFactory.createDriver();
         constructorPage = new ConstructorPage(driver);
     }
 
     @After
     public void tearDown() {
-        if (driver != null) driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test

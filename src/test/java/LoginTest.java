@@ -2,51 +2,42 @@ import api.ApiClient;
 import driver.DriverFactory;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
+import models.User;
 import org.junit.*;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.*;
-import java.util.Arrays;
-import java.util.Collection;
 
 import static org.junit.Assert.*;
 
 @Epic("Stellar Burgers")
 @Feature("Вход в аккаунт")
-@RunWith(Parameterized.class)
-public class LoginTest  {
+public class LoginTest {
+
     public WebDriver driver;
-
-    @Parameterized.Parameters(name = "Браузер: {0}")
-    public static Collection<Object[]> browsers() {
-        return Arrays.asList(new Object[][]{{"chrome"}, {"yandex"}});
-    }
-
-    private final String browser;
     private MainPage mainPage;
     private String email;
     private String password;
     private String accessToken;
 
-    public LoginTest(String browser) {
-        this.browser = browser;
-    }
-
     @Before
     public void setUp() {
-        System.setProperty("driver", browser);
         driver = DriverFactory.createDriver();
         mainPage = new MainPage(driver);
 
         email = "login_" + System.currentTimeMillis() + "@yandex.ru";
         password = "password123";
 
-        Response response = ApiClient.createUser(email, password, "LoginUser");
-        assertEquals(200, response.statusCode());
+        User user = User.builder()
+                .email(email)
+                .password(password)
+                .name("LoginUser")
+                .build();
 
+        Response response = ApiClient.createUser(user);
+
+        assertEquals(200, response.statusCode());
         accessToken = response.jsonPath().getString("accessToken");
-        assertNotNull("accessToken не получен при создании пользователя", accessToken);
+        assertNotNull("accessToken не получен", accessToken);
     }
 
     @After

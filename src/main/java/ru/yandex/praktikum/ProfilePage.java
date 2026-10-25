@@ -1,6 +1,6 @@
 package ru.yandex.praktikum;
 
-import driver.DriverFactory.WebActions;
+import driver.WebActions;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

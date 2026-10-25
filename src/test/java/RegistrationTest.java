@@ -6,46 +6,32 @@ import io.qameta.allure.Story;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.LoginPage;
 import ru.yandex.praktikum.MainPage;
 import ru.yandex.praktikum.RegisterPage;
-import java.util.Arrays;
-import java.util.Collection;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @Epic("Stellar Burgers")
 @Feature("Регистрация")
-@RunWith(Parameterized.class)
-public class RegistrationTest  {
+public class RegistrationTest {
+
     public WebDriver driver;
-
-    @Parameterized.Parameters(name = "Браузер: {0}")
-    public static Collection<Object[]> browsers() {
-        return Arrays.asList(new Object[][]{{"chrome"}, {"yandex"}});
-    }
-
-    private final String browser;
     private MainPage mainPage;
-
-    public RegistrationTest(String browser) {
-        this.browser = browser;
-    }
 
     @Before
     public void setUp() {
-        System.setProperty("driver", browser);
         driver = DriverFactory.createDriver();
         mainPage = new MainPage(driver);
     }
 
     @After
     public void tearDown() {
-        if (driver != null) driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test
