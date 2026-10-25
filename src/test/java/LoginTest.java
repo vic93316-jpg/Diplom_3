@@ -1,6 +1,7 @@
 import api.ApiClient;
 import driver.DriverFactory;
 import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import models.User;
 import org.junit.*;
@@ -58,6 +59,8 @@ public class LoginTest {
 
     @Test
     @Story("Вход по кнопке «Войти в аккаунт» на главной")
+    @DisplayName("Вход через кнопку «Войти в аккаунт» на главной странице")
+    @Description("Проверяет вход пользователя при нажатии кнопки «Войти в аккаунт» на главной странице")
     public void loginViaMainPageButtonTest() {
         LoginPage loginPage = mainPage.clickLoginButton();
         MainPage afterLogin = loginPage.login(email, password);
@@ -67,6 +70,8 @@ public class LoginTest {
 
     @Test
     @Story("Вход через кнопку «Личный кабинет»")
+    @DisplayName("Вход через кнопку «Личный кабинет»")
+    @Description("Проверяет вход пользователя при нажатии кнопки «Личный кабинет» в хедере")
     public void loginViaPersonalAccountButtonTest() {
         LoginPage loginPage = mainPage.clickPersonalAccountButton();
         MainPage afterLogin = loginPage.login(email, password);
@@ -76,6 +81,8 @@ public class LoginTest {
 
     @Test
     @Story("Вход через кнопку в форме регистрации")
+    @DisplayName("Вход через кнопку «Войти» на странице регистрации")
+    @Description("Проверяет вход пользователя через форму регистрации (кнопка «Войти»)")
     public void loginViaRegisterFormTest() {
         LoginPage loginPage = mainPage.clickLoginButton();
         RegisterPage registerPage = loginPage.clickRegisterLink();
@@ -88,6 +95,8 @@ public class LoginTest {
 
     @Test
     @Story("Вход через кнопку в форме восстановления пароля")
+    @DisplayName("Вход через кнопку «Войти» на странице восстановления пароля")
+    @Description("Проверяет вход пользователя через форму восстановления пароля (кнопка «Войти»)")
     public void loginViaForgotPasswordFormTest() {
         LoginPage loginPage = mainPage.clickLoginButton();
         ForgotPasswordPage forgotPasswordPage = loginPage.clickForgotPasswordLink();

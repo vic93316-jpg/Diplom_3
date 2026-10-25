@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+
 public final class DriverFactory {
 
     public static final String BASE_URL = "https://qa-stellarburgers.education-services.ru/";

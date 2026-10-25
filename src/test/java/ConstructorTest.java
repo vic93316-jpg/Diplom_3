@@ -1,7 +1,6 @@
 import driver.DriverFactory;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,6 @@ public class ConstructorTest {
 
     @Before
     public void setUp() {
-        // DriverFactory сама определяет, какой браузер запускать
         driver = DriverFactory.createDriver();
         constructorPage = new ConstructorPage(driver);
     }
@@ -33,6 +31,8 @@ public class ConstructorTest {
 
     @Test
     @Story("Переход к разделу «Булки»")
+    @DisplayName("Переключение на вкладку «Булки»")
+    @Description("Проверяет, что при клике на вкладку «Булки» она становится активной")
     public void bunsTabTest() {
         assertTrue("Вкладка «Булки» должна быть активна",
                 constructorPage.isBunsTabActive());
@@ -40,6 +40,8 @@ public class ConstructorTest {
 
     @Test
     @Story("Переход к разделу «Соусы»")
+    @DisplayName("Переключение на вкладку «Соусы»")
+    @Description("Проверяет, что при клике на вкладку «Соусы» она становится активной")
     public void saucesTabTest() {
         assertTrue("Вкладка «Соусы» должна быть активна",
                 constructorPage.isSaucesTabActive());
@@ -47,6 +49,8 @@ public class ConstructorTest {
 
     @Test
     @Story("Переход к разделу «Начинки»")
+    @DisplayName("Переключение на вкладку «Начинки»")
+    @Description("Проверяет, что при клике на вкладку «Начинки» она становится активной")
     public void fillingsTabTest() {
         assertTrue("Вкладка «Начинки» должна быть активна",
                 constructorPage.isFillingsTabActive());

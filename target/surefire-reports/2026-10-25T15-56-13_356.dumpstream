@@ -1,15 +1,15 @@
-# Created at 2026-10-25T14:20:06.836
+# Created at 2026-10-25T15:56:25.142
 WARNING: An illegal reflective access operation has occurred
 
-# Created at 2026-10-25T14:20:06.837
+# Created at 2026-10-25T15:56:25.142
 WARNING: Illegal reflective access by org.joor.Reflect (file:/C:/Users/vic93/.m2/repository/org/jooq/joor-java-8/0.9.10/joor-java-8-0.9.10.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class)
 
-# Created at 2026-10-25T14:20:06.837
+# Created at 2026-10-25T15:56:25.143
 WARNING: Please consider reporting this to the maintainers of org.joor.Reflect
 
-# Created at 2026-10-25T14:20:06.837
+# Created at 2026-10-25T15:56:25.143
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 
-# Created at 2026-10-25T14:20:06.838
+# Created at 2026-10-25T15:56:25.144
 WARNING: All illegal access operations will be denied in a future release
 

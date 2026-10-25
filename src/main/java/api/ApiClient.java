@@ -6,6 +6,7 @@ import models.User;
 
 import static io.restassured.RestAssured.given;
 
+
 public class ApiClient {
 
     private static final String BASE_URL = "https://qa-stellarburgers.education-services.ru/";

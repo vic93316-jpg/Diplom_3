@@ -1,8 +1,6 @@
 import driver.DriverFactory;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +34,8 @@ public class RegistrationTest {
 
     @Test
     @Story("Успешная регистрация")
-    @Description("Проверка успешной регистрации нового пользователя")
+    @DisplayName("Успешная регистрация нового пользователя")
+    @Description("Проверка успешной регистрации нового пользователя (без вывода сообщений об ошибках)")
     public void successfulRegistrationTest() {
         String email = "test_" + System.currentTimeMillis() + "@yandex.ru";
         String password = "password123";
@@ -52,7 +51,8 @@ public class RegistrationTest {
 
     @Test
     @Story("Ошибка при коротком пароле")
-    @Description("Проверка ошибки, если пароль меньше 6 символов")
+    @DisplayName("Ошибка при регистрации с коротким паролем")
+    @Description("Проверка появления ошибки, если пароль меньше 6 символов")
     public void shortPasswordErrorTest() {
         String email = "test_" + System.currentTimeMillis() + "@yandex.ru";
         String shortPassword = "12345";
