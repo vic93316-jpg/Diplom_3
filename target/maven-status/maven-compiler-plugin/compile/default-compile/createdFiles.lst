@@ -1,0 +1,9 @@
+driver\DriverFactory.class
+ru\yandex\praktikum\ConstructorPage.class
+driver\DriverFactory$WebActions.class
+ru\yandex\praktikum\ProfilePage.class
+ru\yandex\praktikum\RegisterPage.class
+ru\yandex\praktikum\ForgotPasswordPage.class
+api\ApiClient.class
+ru\yandex\praktikum\LoginPage.class
+ru\yandex\praktikum\MainPage.class
